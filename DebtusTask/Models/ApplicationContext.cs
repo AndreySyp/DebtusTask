@@ -13,6 +13,7 @@ public class ApplicationContext : DbContext
     {
         Database.EnsureCreated();
     }
+
     protected override void OnModelCreating(ModelBuilder modelBuilder)
     {
         List<Position> positions = CreateDataHelper.Positions();
@@ -23,5 +24,4 @@ public class ApplicationContext : DbContext
         modelBuilder.Entity<Employee>().HasData(employees);
         modelBuilder.Entity<Shift>().HasData(shifts);
     }
-
 }

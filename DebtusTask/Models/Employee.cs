@@ -5,7 +5,6 @@ namespace DebtusTask.Models;
 public class Employee
 {
     public int Id { get; set; }
-
     public string? Name { get; set; }
     public string? Surname { get; set; }
     public string? Patronymic { get; set; }
@@ -20,6 +19,7 @@ public class Employee
         private set { } 
     }
 
-    public Position? Position { get; set; }
-    public List<Shift> Shifts { get; set; } = [];
+    public int? PositionId { get; set; }
+    public virtual Position? Position { get; set; }
+    public virtual ICollection<Shift> Shifts { get; set; } = [];
 }
