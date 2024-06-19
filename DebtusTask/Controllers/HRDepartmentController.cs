@@ -40,17 +40,17 @@ public class HRDepartmentController(ApplicationContext db) : ControllerBase
     }
 
     [HttpGet("{position}")]
-    public async Task<ActionResult<Employee>> GetEmployeePosition(string position)
+    public ActionResult<Employee> GetEmployeePosition(string position)
     {
-        var employee = await db.Employees.Include(i => i.Position)
-                                         .Include(i => i.Shifts)
-                                         .FirstOrDefaultAsync(x => x.Position!.Name == position);
-        if (employee == null)
+        var employees = db.Employees.Include(i => i.Position)
+                                    .Include(i => i.Shifts)
+                                    .Where(x => x.Position!.Name == position);
+        if (employees == null)
         {
             return BadRequest(new Error("Position not found.", position));
         }
 
-        return Ok(employee);
+        return Ok(employees);
     }
 
     [HttpPost]
