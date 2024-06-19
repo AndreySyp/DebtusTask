@@ -1,6 +1,66 @@
 @DebtusTask_HostAddress = http://localhost:5250
+    
+GET {{DebtusTask_HostAddress}}/HRDepartment/positions
+Accept: application/json
+
+###
 
 GET {{DebtusTask_HostAddress}}/HRDepartment/
 Accept: application/json
 
+###
+   
+GET {{DebtusTask_HostAddress}}/HRDepartment/1
+Accept: application/json
+
+###
+
+GET {{DebtusTask_HostAddress}}/HRDepartment/Менеджер
+Accept: application/json
+
+###
+
+POST {{DebtusTask_HostAddress}}/HRDepartment/
+Accept: application/json
+Content-Type: application/json
+
+{
+	"Name": "Игнат",
+  "Surname": "Зуев",
+  "Patronymic": "Витальевич",
+  "Position": {
+      "Name": "Менеджер"
+  }
+}
+###
+
+PUT {{DebtusTask_HostAddress}}/HRDepartment/
+Accept: application/json
+Content-Type: application/json
+
+{
+  "Id": 2,
+	"Name": "Игнат",
+  "Surname": "Федосеев",
+  "Patronymic": "Витальевич",
+  "Position": {
+      "Name": "Менеджер"
+  }
+}
+###
+
+DELETE {{DebtusTask_HostAddress}}/HRDepartment/1
+Accept: application/json
+
+}
+###
+
+POST {{DebtusTask_HostAddress}}/Checkpoint/1/2024-06-19T10:10
+
+}
+###
+
+PUT {{DebtusTask_HostAddress}}/Checkpoint/1/2024-06-19T19:12
+
+}
 ###
