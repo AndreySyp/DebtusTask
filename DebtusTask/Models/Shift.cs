@@ -8,4 +8,5 @@ public class Shift
     public DateTime? End { get; set; }
     public TimeSpan HoursWorked { get; set; }
     public Employee? Employee { get; set; }
+    public bool Reprimand { get; set; }
 }
