@@ -1,0 +1,6 @@
+@DebtusTask_HostAddress = http://localhost:5250
+
+GET {{DebtusTask_HostAddress}}/HRDepartment/
+Accept: application/json
+
+###
