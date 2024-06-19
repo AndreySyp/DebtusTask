@@ -10,7 +10,7 @@ public class CheckpointController(ApplicationContext db) : ControllerBase
 {
     private readonly ApplicationContext db = db;
 
-    [HttpPost("{id}")]
+    [HttpPost("{id}/{startShift}")]
     public async Task<ActionResult<Shift>> StartShift(int id, DateTime startShift)
     {
         var employee = await db.Employees.Include(i => i.Shifts).FirstOrDefaultAsync(x => x.Id == id);
@@ -34,7 +34,7 @@ public class CheckpointController(ApplicationContext db) : ControllerBase
         return Ok();
     }
 
-    [HttpPut("{id}")]
+    [HttpPut("{id}/{endShift}")]
     public async Task<ActionResult<Employee>> EndShift(int id, DateTime endShift)
     {
         var employee = await db.Employees.Include(i => i.Shifts).FirstOrDefaultAsync(x => x.Id == id);
