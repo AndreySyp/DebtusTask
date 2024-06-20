@@ -73,7 +73,6 @@ public static class CreateDataHelper
                 Id = i,
                 Started = started,
                 End = end,
-                HoursWorked = end.Subtract(started),
                 Reprimand = rnd.NextDouble() >= 0.5,
                 EmployeeId = employees[rnd.Next(0, employees.Count)].Id,
             });

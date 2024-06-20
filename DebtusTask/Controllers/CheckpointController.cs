@@ -52,13 +52,6 @@ public class CheckpointController(ApplicationContext db) : ControllerBase
         }
 
         shift.End = endShift;
-        shift.HoursWorked = endShift.Subtract(shift.Started);
-        if (TimeOnly.FromDateTime(shift.Started) > employee.Position!.DayStart
-            || TimeOnly.FromDateTime(endShift) < employee.Position!.DayEnd)
-        {
-            shift.Reprimand = true;
-        }
-
         await db.SaveChangesAsync();
         return Ok();
     }
